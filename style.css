@@ -30,6 +30,7 @@ body {
 	color: var(--text);
 	font-family: "BSD Fixed", "Fira Mono", "IBM Plex Mono", "JetBrains Mono", "SFMono-Regular", "Menlo", "Consolas", "Liberation Mono", monospace;
 	letter-spacing: 0.02em;
+	padding-bottom: 72px;
 }
 
 a {
@@ -234,6 +235,104 @@ a {
 	color: var(--muted);
 	font-size: 12px;
 	padding: 24px;
+}
+
+.terminal-output {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 48px;
+	max-height: 0;
+	padding: 0 16px;
+	background: rgba(2, 7, 15, 0.92);
+	border-top: 1px solid rgba(76, 201, 255, 0.12);
+	overflow-y: auto;
+	z-index: 99;
+	opacity: 1;
+	transition: max-height 0.25s ease, padding 0.25s ease, opacity 0.8s ease;
+}
+
+.terminal-output.is-open {
+	max-height: 240px;
+	padding: 12px 16px;
+}
+
+.terminal-output.is-idle {
+	opacity: 0.1;
+}
+
+.terminal-output::-webkit-scrollbar {
+	width: 8px;
+}
+
+.terminal-output::-webkit-scrollbar-thumb {
+	background: rgba(76, 201, 255, 0.2);
+	border-radius: 8px;
+}
+
+.terminal-output::-webkit-scrollbar-track {
+	background: rgba(2, 7, 15, 0.6);
+}
+
+.terminal-line {
+	display: flex;
+	gap: 8px;
+	line-height: 1.5;
+	font-size: 13px;
+}
+
+.terminal-prompt {
+	color: var(--accent);
+	white-space: nowrap;
+}
+
+.terminal-block {
+	display: grid;
+	grid-template-columns: minmax(0, auto) 1fr;
+	gap: 16px;
+	align-items: start;
+	font-size: 13px;
+	line-height: 1.5;
+}
+
+.terminal-block pre {
+	margin: 0;
+	color: var(--accent);
+}
+
+.terminal-stats {
+	color: var(--text);
+}
+
+.terminal-bar {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 100;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 8px 16px;
+	background: var(--bg-deep);
+	border-top: 1px solid rgba(76, 201, 255, 0.2);
+	opacity: 1;
+	transition: opacity 0.8s ease;
+}
+
+.terminal-bar.is-idle {
+	opacity: 0.35;
+}
+
+#terminal-input {
+	flex: 1;
+	background: transparent;
+	border: none;
+	outline: none;
+	color: var(--text);
+	font-family: inherit;
+	font-size: 13px;
+	letter-spacing: 0.02em;
 }
 
 @keyframes blink {
