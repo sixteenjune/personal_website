@@ -40,6 +40,22 @@ const tick = () => {
 
 tick();
 
+window.addEventListener("load", () => {
+	const accent = "color:#4cc9ff;font-weight:600";
+	const dim = "color:#7a91b8";
+	const warn = "color:#f6c177";
+	const mono = "font-family:monospace";
+
+	console.log("%ci'm an angry milk", `${accent};${mono}`);
+	console.log("%c$ rm -rf /happymilk", `${warn};${mono}`);
+	console.log("%cremoving %c'/happymilk'", `${dim};${mono}`, `${accent};${mono}`);
+	console.log("%cremoving %c'/happymilk/.git'", `${dim};${mono}`, `${accent};${mono}`);
+	console.log("%cremoving %c'/happymilk/maimai'", `${dim};${mono}`, `${accent};${mono}`);
+	console.log("%cremoving %c'/happymilk/happiness'", `${dim};${mono}`, `${accent};${mono}`);
+	console.log("%cremoving %c'/happymilk/snacks'", `${dim};${mono}`, `${accent};${mono}`);
+	console.log("%cremoving %c'/happymilk/notes/todo.md'", `${dim};${mono}`, `${accent};${mono}`);
+});
+
 const terminalInput = document.getElementById("terminal-input");
 const terminalOutput = document.getElementById("terminal-output");
 const terminalBar = document.querySelector(".terminal-bar");
