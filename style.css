@@ -50,8 +50,8 @@ a {
 
 .ambient-orb {
 	position: fixed;
-	width: 520px;
-	height: 520px;
+	width: 680px;
+	height: 680px;
 	border-radius: 50%;
 	background: radial-gradient(circle, rgba(76, 201, 255, 0.28) 0%, rgba(33, 162, 255, 0.08) 45%, transparent 70%);
 	filter: blur(6px);
@@ -68,8 +68,8 @@ a {
 }
 
 .ambient-orb--two {
-	width: 640px;
-	height: 640px;
+	width: 820px;
+	height: 820px;
 	bottom: -220px;
 	right: -160px;
 	opacity: 0.5;
