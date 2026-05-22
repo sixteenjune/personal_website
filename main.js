@@ -179,16 +179,26 @@ const renderJunefetch = () => {
 
 const renderGit = () => {
 	const lines = [
-		"f3a2c1d - chore: optimized local llm inference pipeline loops (rust)",
-		"8b91e0a - feat: deployed automated container health-check daemon (docker/bash)",
-		"6ce4d33 - feat: realtime log shipper with zero-copy buffering (rust)",
-		"2a8bd0f - fix: tightened service watchdog timings for edge nodes (linux)",
+		"f3a2c1d - chore: deployed grafana agent for monitoring container metrics (docker)",
+		"8b91e0a - feat: deployed ai-assisted personal assistant to communicate to wayland desktops via mako (python)",
+		"6ce4d33 - feat: experimented with linear algebra and matrix libraries in rust (rust)",
+		"2a8bd0f - fix: updated server kernels to protect against latest copy-fail vulnerabilities (linux)",
 	];
 	appendLines(lines);
 };
 
+const renderPing = () => {
+	const start = performance.now();
+	const jitter = 8 + Math.random() * 24;
+	window.setTimeout(() => {
+		const latency = Math.round(performance.now() - start);
+		appendLineText(`pong ${latency}ms`);
+		finalizeOutput();
+	}, jitter);
+};
+
 const renderHelp = () => {
-	appendLineText("available: junefetch, git, projects, clear, help");
+	appendLineText("available: junefetch, git, ping, clear, help");
 	finalizeOutput();
 };
 
@@ -206,8 +216,10 @@ const handleCommand = (raw) => {
 			renderJunefetch();
 			break;
 		case "git":
-		case "projects":
 			renderGit();
+			break;
+		case "ping":
+				renderPing();
 			break;
 		case "clear":
 			terminalOutput.innerHTML = "";
