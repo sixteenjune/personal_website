@@ -235,7 +235,7 @@ const handleCommand = (raw) => {
 			renderGit();
 			break;
 		case "ping":
-				renderPing();
+			renderPing();
 			break;
 		case "clear":
 			terminalOutput.innerHTML = "";

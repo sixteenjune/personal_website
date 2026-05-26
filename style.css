@@ -279,6 +279,8 @@ a {
 	align-items: center;
 	padding: 80px 24px 120px;
 	scroll-snap-align: start;
+	content-visibility: auto;
+	contain-intrinsic-size: 900px 800px;
 }
 
 .hobby-grid {
@@ -431,6 +433,19 @@ a {
 
 .terminal-bar.is-idle {
 	opacity: 0.35;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+
+	.ambient-orb {
+		animation: none;
+	}
 }
 
 #terminal-input {
