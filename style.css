@@ -156,12 +156,27 @@ a {
 	background: linear-gradient(135deg, rgba(76, 201, 255, 0.25), rgba(33, 162, 255, 0.08));
 	border: 1px solid rgba(76, 201, 255, 0.35);
 	box-shadow: 0 0 20px rgba(76, 201, 255, 0.15);
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.btn__icon {
+	width: 20px;
+	height: 20px;
+	filter: brightness(0) invert(1) drop-shadow(0 0 6px rgba(76, 201, 255, 0.25));
+	opacity: 0.9;
 }
 
 .btn--ghost {
 	background: rgba(7, 21, 36, 0.6);
 	border-color: rgba(122, 145, 184, 0.3);
 	box-shadow: none;
+}
+
+.btn--small {
+	padding: 8px 16px;
+	font-size: 13px;
 }
 
 .scroll-arrow {
@@ -348,6 +363,88 @@ a {
 	transform: translateY(0);
 }
 
+.projects-section {
+	position: relative;
+	z-index: 1;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	padding: 80px 24px 120px;
+	scroll-snap-align: start;
+	content-visibility: auto;
+	contain-intrinsic-size: 900px 800px;
+}
+
+.project-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 18px;
+}
+
+.project-card {
+	position: relative;
+	border-radius: 16px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	min-height: 220px;
+	background: linear-gradient(180deg, rgba(10, 26, 42, 0.95), rgba(4, 12, 24, 0.98));
+	border: 1px solid rgba(76, 201, 255, 0.18);
+	box-shadow: 0 18px 30px rgba(2, 10, 24, 0.75), inset 0 0 18px rgba(76, 201, 255, 0.04);
+	transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+	padding: 24px;
+}
+
+.project-card:hover {
+	transform: translateY(-6px);
+	border-color: rgba(76, 201, 255, 0.45);
+	box-shadow: 0 26px 40px rgba(2, 10, 24, 0.85), inset 0 0 24px rgba(76, 201, 255, 0.08);
+}
+
+.project-body {
+	flex: 1;
+}
+
+.project-body h3 {
+	margin: 0 0 12px;
+	font-size: 18px;
+	color: var(--text);
+}
+
+.project-body p {
+	margin: 0;
+	color: var(--muted);
+	font-size: 14px;
+	line-height: 1.6;
+}
+
+.project-tech {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+}
+
+.project-tech img {
+	width: 20px;
+	height: 20px;
+	filter: drop-shadow(0 0 6px rgba(76, 201, 255, 0.25));
+	opacity: 0.9;
+	transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.project-tech img:hover {
+	transform: translateY(-2px);
+	filter: drop-shadow(0 0 8px rgba(76, 201, 255, 0.5));
+	opacity: 1;
+}
+
+.project-footer {
+	margin-top: 24px;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
 .terminal-output {
 	position: fixed;
 	left: 0;
@@ -484,6 +581,7 @@ a {
 	.intro-section {
 		padding-top: 72px;
 	}
+	.projects-section,
 	.hobbies-section {
 		padding-top: 120px;
 	}
@@ -492,6 +590,7 @@ a {
 		flex-wrap: wrap;
 	}
 
+	.project-grid,
 	.hobby-grid {
 		grid-template-columns: 1fr;
 	}
